@@ -1,0 +1,18 @@
+syntax = "proto3";
+package login.v1;
+option go_package = "./login";
+
+message AuthRequest {
+  string username = 1;
+  string org_id = 2;
+  string password = 3;
+}
+
+message AuthResponse {
+  string token = 1;
+}
+
+
+service LoginService {
+  rpc Login(AuthRequest) returns (AuthResponse);
+}
